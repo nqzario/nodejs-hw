@@ -2,7 +2,7 @@ import { Note } from '../models/note.js';
 import createHttpError from 'http-errors';
 
 export const getAllNotes = async (req, res) => {
-  const notes = await Note.find(req.query.Note);
+  const notes = await Note.find(req.body);
   console.log('Retrieved notes:');
   
   res.status(200).json(notes);
@@ -31,7 +31,7 @@ export const deleteNote = async (req, res, next) => {
   if(!note){
     return next(createHttpError(404, 'Note not found'));
   }
-  res.status(200).json(`Note with id ${note._id} has delete`);
+  res.status(200).json(note);
 };
 
 
