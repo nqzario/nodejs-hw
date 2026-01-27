@@ -7,6 +7,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import notesRoutes from './routes/notesRoutes.js';
 import 'dotenv/config';
+import { errors } from 'celebrate';
 
 const PORT = process.env.PORT ?? 3000;
 const app = express();
@@ -29,6 +30,8 @@ app.use(
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
+
+app.use(errors());
 
 app.use(errorHandler);
 
