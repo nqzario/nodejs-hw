@@ -1,4 +1,4 @@
-import { mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(
   {
@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true,
-      min: 8,
+      minlength: 8,
     },
   },
   {

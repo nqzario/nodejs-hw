@@ -1,9 +1,9 @@
-import { mongoose, Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 const sessionSchema = mongoose.Schema(
   {
     userId: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User',
     },
