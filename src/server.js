@@ -6,8 +6,10 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import notesRoutes from './routes/notesRoutes.js';
+import authRouter from './routes/authRouter.js';
 import 'dotenv/config';
 import { errors } from 'celebrate';
+import cookieParser from 'cookie-parser';
 
 const PORT = process.env.PORT ?? 3000;
 const app = express();
@@ -17,6 +19,9 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   }),
 );
+
+app.use(cookieParser());
+
 app.use(helmet());
 
 app.use(logger);
@@ -28,6 +33,7 @@ app.use(
 );
 
 app.use(notesRoutes);
+app.use(authRouter);
 
 app.use(notFoundHandler);
 
