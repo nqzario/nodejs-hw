@@ -6,7 +6,7 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import notesRoutes from './routes/notesRoutes.js';
-import authRouter from './routes/authRouter.js';
+import authRouter from './routes/authRoutes.js';
 import 'dotenv/config';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
