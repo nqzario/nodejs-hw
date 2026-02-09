@@ -7,6 +7,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import notesRoutes from './routes/notesRoutes.js';
 import authRouter from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import 'dotenv/config';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
@@ -34,6 +35,7 @@ app.use(
 
 app.use(notesRoutes);
 app.use(authRouter);
+app.use(userRoutes);
 
 app.use(notFoundHandler);
 
